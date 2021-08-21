@@ -38,7 +38,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult Create(Category category)
         {
-            if (category.CategoryName.Length < 1)
+            if (category.CategoryName.Length < 1 || category.CategoryName.Length > 100)
             {
                 return new ErrorResult(Messages.NameInvalid);
             }
